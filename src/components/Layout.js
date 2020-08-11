@@ -13,7 +13,7 @@ export default class Body extends React.Component {
                     <title>{_.get(this.props, 'page.frontmatter.title', null) && (_.get(this.props, 'page.frontmatter.title', null) + ' - ')}{_.get(this.props, 'data.config.title', null)}</title>
                     <meta charSet="utf-8"/>
                     <meta name="viewport" content="width=device-width, initialScale=1.0" />
-                    <meta name="description" content={_.get(this.props, 'page.frontmatter.excerpt', null) || _.get(this.props, 'data.config.description', null)}/>
+                    <meta name="description" content={_.get(this.props, 'page.excerpt', null) || _.get(this.props, 'data.config.description', null)}/>
                     <link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i%26Display=swap" rel="stylesheet"/> 
                 </Head>
                 <div id="page" className="site">
