@@ -11,13 +11,13 @@ export default class Blog extends React.Component {
         return (
             <Layout {...this.props}>
               <header className="page-header has-gradient outer">
-                {_.get(this.props, 'page.image', null) && (
-                <div className="bg-img" style={toStyleObj('background-image: url(\'' + withPrefix(_.get(this.props, 'page.image', null)) + '\')')}/>
+                {_.get(this.props, 'page.frontmatter.image', null) && (
+                <div className="bg-img" style={toStyleObj('background-image: url(\'' + withPrefix(_.get(this.props, 'page.frontmatter.image', null)) + '\')')}/>
                 )}
                 <div className="inner-sm">
-                  <h1 className="page-title">{_.get(this.props, 'page.title', null)}</h1>
-                  {_.get(this.props, 'page.subtitle', null) && (
-                  <p className="page-subtitle">{_.get(this.props, 'page.subtitle', null)}</p>
+                  <h1 className="page-title">{_.get(this.props, 'page.frontmatter.title', null)}</h1>
+                  {_.get(this.props, 'page.frontmatter.subtitle', null) && (
+                  <p className="page-subtitle">{_.get(this.props, 'page.frontmatter.subtitle', null)}</p>
                   )}
                 </div>
               </header>
@@ -25,17 +25,17 @@ export default class Blog extends React.Component {
                 <div className="post-feed">
                   {_.map(display_posts, (post, post_idx) => (
                   <article key={post_idx} className="post">
-                    {_.get(post, 'thumb_image', null) && (
-                    <Link className="post-thumbnail" href={withPrefix(_.get(post, '__metadata.urlPath', null))}><img src={withPrefix(_.get(post, 'thumb_image', null))} alt={_.get(post, 'title', null)} /></Link>
+                    {_.get(post, 'frontmatter.thumb_image', null) && (
+                    <Link className="post-thumbnail" href={withPrefix(_.get(post, '__metadata.urlPath', null))}><img src={withPrefix(_.get(post, 'frontmatter.thumb_image', null))} alt={_.get(post, 'frontmatter.title', null)} /></Link>
                     )}
                     <header className="post-header">
                       <div className="post-meta">
                         <time className="published" dateTime={moment(_.get(post, 'frontmatter.date', null)).strftime('%Y-%m-%d %H:%M')}>{moment(_.get(post, 'frontmatter.date', null)).strftime('%B %d, %Y')}</time>
                       </div>
-                      <h2 className="post-title line-left"><Link href={withPrefix(_.get(post, '__metadata.urlPath', null))} rel="bookmark">{_.get(post, 'title', null)}</Link></h2>
+                      <h2 className="post-title line-left"><Link href={withPrefix(_.get(post, '__metadata.urlPath', null))} rel="bookmark">{_.get(post, 'frontmatter.title', null)}</Link></h2>
                     </header>
-                    {_.get(post, 'excerpt', null) && (<React.Fragment>
-                    <p className="post-excerpt">{_.get(post, 'excerpt', null)}</p>
+                    {_.get(post, 'frontmatter.excerpt', null) && (<React.Fragment>
+                    <p className="post-excerpt">{_.get(post, 'frontmatter.excerpt', null)}</p>
                     <p className="read-more"><Link href={withPrefix(_.get(post, '__metadata.urlPath', null))} className="read-more-link">Read More</Link></p>
                     </React.Fragment>)}
                   </article>
