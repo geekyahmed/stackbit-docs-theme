@@ -17,10 +17,10 @@ export default class Docs extends React.Component {
                 <article className="post type-docs">
                   <div className="post-inside">
                     <header className="post-header">
-                      <h1 className="post-title line-left">{_.get(this.props, 'page.frontmatter.title', null)}</h1>
+                      <h1 className="post-title line-left">{_.get(this.props, 'page.title', null)}</h1>
                     </header>
                     <div className="post-content">
-                      {markdownify(_.get(this.props, 'page.markdown', null))}
+                      {markdownify(_.get(this.props, 'page.content', null))}
                       {(root_docs_path !== current_page_url) && ((() => {
                           let child_pages = _.orderBy(getPages(this.props.pages, current_page_url), 'frontmatter.weight');
                           let child_count = _.size(child_pages);
@@ -41,6 +41,7 @@ export default class Docs extends React.Component {
                 <nav id="page-nav" className="page-nav">
                   <div id="page-nav-inside" className="page-nav-inside sticky">
                     <h2 className="page-nav-title">Jump to Section</h2>
+                    <div id="page-nav-link-container" />
                   </div>
                 </nav>
               </div>

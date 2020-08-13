@@ -23,14 +23,19 @@ export default class Header extends React.Component {
                     <div className="site-nav-inside">
                       <button id="menu-close" className="menu-toggle"><span className="screen-reader-text">Open Menu</span><span className="icon-close" aria-hidden="true" /></button>
                       <ul className="menu">
-                        {_.map(_.get(this.props, 'data.config.header.nav_links', null), (action, action_idx) => (
-                        <li key={action_idx} className={classNames('menu-item', {'has-children': _.get(action, 'has_subnav', null) && _.get(action, 'subnav_links', null), 'current': _.get(this.props, 'page.__metadata.urlPath', null) === _.get(action, 'url', null), 'menu-button': _.get(action, 'style', null) !== 'link'})}>
-                          <ActionLink {...this.props} action={action} />
-                          {(_.get(action, 'has_subnav', null) && _.get(action, 'subnav_links', null)) && (
-                            <Submenu {...this.props} submenu={_.get(action, 'subnav_links', null)} menu_class={'submenu'} page={this.props.page} />
-                          )}
-                        </li>
-                        ))}
+                      {_.map(_.get(this.props, 'data.config.header.nav_links', null), (action, action_idx) => {
+                          let page_url = _.trim(_.get(this.props, 'page.__metadata.urlPath', null), '/');
+                          let action_url = _.trim(_.get(action, 'url', null), '/');
+                          return (
+                            <li key={action_idx} className={classNames('menu-item', {'has-children': _.get(action, 'has_subnav', null) && _.get(action, 'subnav_links', null), 'current': page_url === action_url, 'menu-button': _.get(action, 'style', null) !== 'link'})}>
+                              <ActionLink {...this.props} action={action} />
+                              {(_.get(action, 'has_subnav', null) && _.get(action, 'subnav_links', null)) && (<React.Fragment>
+                                <button className="submenu-toggle"><span className="icon-angle-right" aria-hidden="true" /><span className="screen-reader-text">Sub-menu</span></button>
+                                <Submenu {...this.props} submenu={_.get(action, 'subnav_links', null)} menu_class={'submenu'} page={this.props.page} />
+                              </React.Fragment>)}
+                            </li>
+                          )
+                      })}
                       </ul>
                     </div>
                   </nav>

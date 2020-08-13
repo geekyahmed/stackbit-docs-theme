@@ -18,8 +18,8 @@ class MyDocument extends Document {
                     <Main />
                     <NextScript />
                     <ScriptTag src={withPrefix('assets/js/plugins.js')}/>
-                    <ScriptTag src={withPrefix('assets/js/prism.js')} data-manual/>
                     <ScriptTag src={withPrefix('assets/js/main.js')}/>
+                    <ScriptTag src={withPrefix('assets/js/page-load.js')}/>
                 </body>
             </Html>
         );

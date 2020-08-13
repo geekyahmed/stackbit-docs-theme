@@ -14,9 +14,9 @@ export default class DocsMenu extends React.Component {
             <nav id="docs-nav" className="docs-nav">
               <div id="docs-nav-inside" className="docs-nav-inside sticky">
                 <button id="docs-nav-toggle" className="docs-nav-toggle">Navigate Docs<span className="icon-angle-right" aria-hidden="true" /></button>
-                <div className="docs-toc-wrap">
-                  <ul id="docs-toc" className="docs-toc">
-                    <li className={classNames('toc-item', {'current': _.get(page, '__metadata.urlPath', null) === _.get(root_page, '__metadata.urlPath', null)})}>
+                <div className="docs-nav-menu">
+                  <ul id="docs-menu" className="docs-menu">
+                    <li className={classNames('docs-menu-item', {'current': _.get(page, '__metadata.urlPath', null) === _.get(root_page, '__metadata.urlPath', null)})}>
                       <Link href={withPrefix(_.get(root_page, '__metadata.urlPath', null))}>{_.get(root_page, 'frontmatter.title', null)}</Link>
                     </li>
                     {_.map(_.get(site, 'data.doc_sections.sections', null), (section, section_idx) => {
@@ -28,10 +28,10 @@ export default class DocsMenu extends React.Component {
                         let is_current_page = (_.get(page, '__metadata.urlPath', null) === _.get(section_page, '__metadata.urlPath', null)) ? (true) : false;
                         let is_active = _.get(page, '__metadata.urlPath', null).startsWith(_.get(section_page, '__metadata.urlPath', null));
                         return (<React.Fragment key={section_idx + '.1'}>
-                          <li key={section_idx} className={classNames('toc-item', {'has-children': has_children, 'current': is_current_page, 'active': is_active})}>
+                          <li key={section_idx} className={classNames('docs-menu-item', {'has-children': has_children, 'current': is_current_page, 'active': is_active})}>
                             <Link href={withPrefix(_.get(section_page, '__metadata.urlPath', null))}>{_.get(section_page, 'frontmatter.title', null)}</Link>
                             {has_children && (<React.Fragment>
-                              <button className="submenu-toggle"><span className="screen-reader-text">Submenu</span><span className="icon-angle-right" aria-hidden="true" /></button>
+                              <button className="docs-submenu-toggle"><span className="screen-reader-text">Submenu</span><span className="icon-angle-right" aria-hidden="true" /></button>
                               <DocsSubmenu {...this.props} child_pages={child_pages} page={page} site={site} />
                             </React.Fragment>)}
                           </li>
