@@ -20,6 +20,7 @@ class MyDocument extends Document {
                     <ScriptTag src={withPrefix('assets/js/plugins.js')}/>
                     <ScriptTag src={withPrefix('assets/js/main.js')}/>
                     <ScriptTag src={withPrefix('assets/js/page-load.js')}/>
+                    <ScriptTag src={withPrefix('assets/js/page-unload.js')}/>
                 </body>
             </Html>
         );
