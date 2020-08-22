@@ -6,7 +6,13 @@ sections:
     content: >-
       **Doceuos**  is a documentation theme built with Stackbit and utilizes
       Next.js as a static site generator
-    actions: []
+    actions:
+      - label: lorem-ipsum
+        url: lorem-ipsum
+        style: link
+        icon_class: lorem-ipsum
+        new_window: false
+        type: action
     type: section_hero
 layout: advanced
 ---
