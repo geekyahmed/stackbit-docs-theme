@@ -1,15 +1,6 @@
 ---
 title: Home
 sections:
-  - section_id: hero
-    type: section_hero
-    title: Documentation Theme
-    image: images/5.jpg
-    content: This is a documentation theme built with Stackbit using Next.js
-    actions:
-      - label: Get Started
-        url: /docs
-        style: primary
   - section_id: features
     type: section_grid
     col_number: three
