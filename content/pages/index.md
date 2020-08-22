@@ -4,14 +4,8 @@ sections:
   - title: Doceuos Theme
     section_id: lorem-ipsum
     content: >-
-      ## Lorem ipsum
-
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua.
-
-      - Lorem ipsum
-
-      - dolor sit amet
+      **Doceuos**  is a documentation theme built with Stackbit and utilizes
+      Next.js as a static site generator
     actions: []
     type: section_hero
 layout: advanced
