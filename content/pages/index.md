@@ -1,7 +1,7 @@
 ---
 title: Home
 sections:
-  - title: 'Doceuos '
+  - title: Doceuos Theme
     section_id: lorem-ipsum
     content: >-
       ## Lorem ipsum
