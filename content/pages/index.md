@@ -14,5 +14,6 @@ sections:
         new_window: false
         type: action
     type: section_hero
+    image: images/chris-ried-ieic5Tq8YMk-unsplash.jpg
 layout: advanced
 ---
